@@ -22,4 +22,5 @@ urlpatterns = [
 path('hw', include('hello_world.urls')), ## add this line into the list of urlpatterns
     # other URL patterns here .... 
     path('pages/', include('pages.urls')),  ## add this new URL include
+    path('quotes/', include('quotes.urls')), # include the URLs from our quotes project's urls.py file
 ]
