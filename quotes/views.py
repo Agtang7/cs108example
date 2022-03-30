@@ -13,3 +13,4 @@ class QuotePageView(DetailView):
     model = Quote
     template_name = 'quotes/quote.html'
     context_object_name = 'quote'
+    
