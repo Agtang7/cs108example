@@ -1,0 +1,67 @@
+<!-- mini_fb/show_profile_page.html -->
+{% extends 'mini_fb/base.html' %}
+{% block content %}
+
+<h1>{{profile.first_name}} {{profile.last_name}}</h1>
+<center><img src="{{profile.profile_pic}}" style="max-width: 400;"></center>
+
+<h3><center>{{profile.birthday}} <br> {{profile.city}} <br> {{profile.email_address}}</center></h3>
+<center>
+    <h4>
+        <a href="{% url 'update_profile' profile.pk %}">Edit this profile</a>
+        <a href="{% url 'show_news_feed' profile.pk %}">Show {{profile.first_name}}'s news feed</a>
+        <a href="{% url 'show_friend_suggestions' profile.pk %}">Find friends</a>
+    </h4>
+</center>
+
+<form method="POST" enctype="multipart/form-data" action="/mini_fb/profile/{{profile.pk}}/post_status"> <!-- HTTP POST to send data to the server -->
+    {% csrf_token %}
+    
+    <table>
+        {{create_status_form}}
+    <tr>
+        <h3>Post Status Message</h3>
+        <td></td> <!-- empty! -->
+        <td><input type="submit" value="Post"></td>
+    </tr>
+    </table>
+</form>
+
+<table>
+    {% for statusmessage in profile.GetStatusMessage %}
+    <tr>
+        <td>{{statusmessage.timestamp}} <br> {{statusmessage.message}}</td>
+        {% if statusmessage.image %}
+        <td></td>
+        <td><img src='{{statusmessage.image.url}}' style='max-width: 300;max-height: 300'></td>
+        {% endif %}
+        <td><a href="{% url 'delete_status' profile_pk=profile.pk status_pk=statusmessage.pk %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>{{profile.first_name}}'s Friends</h2>
+<table>
+    <tr>
+        <th>Profile Picture</th>
+        <th>Name</th>
+    </tr>
+    <colgroup>
+        <col span="1" style="width: 50%;">
+        <col span="1" style="width: 40%;">
+    </colgroup>
+        {% if profile.get_friends %}
+        {% for friend in profile.get_friends %}
+        <tr>
+            <td><center><img src="{{friend.profile_pic}}" style="max-width: 200;max-height: 200;"></center></td>
+            <td><a href="{% url 'show_profile_page' friend.pk %}"><center>{{friend.first_name}} {{friend.last_name}}</center></a></td>
+        </tr>
+    <tr>
+    </tr>
+    {% endfor %}
+</table>
+    {% else %}
+    {{profile.first_name}} doesn't have any friends.
+    {% endif %}
+
+{% endblock %}

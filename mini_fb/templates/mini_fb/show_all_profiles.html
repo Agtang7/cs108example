@@ -1,0 +1,36 @@
+<!-- profiles/show_all_profiles.html -->
+
+
+<h1>Showing All Profiles</h1>
+
+{% extends 'mini_fb/base.html' %}
+{% block content %}
+<!-- create a loop to dispay the quotes -->
+<p>
+</p>
+<table>
+    <colgroup>
+        <col span="1" style="width: 20%;">
+        <col span="1" style="width: 20%;">
+        <col span="1" style="width: 60%;">
+    </colgroup>
+    <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Profile Picture</th>
+    </tr>
+    <tr>
+        {% for profile in profiles %}
+        <tr>
+            <td>
+                <a href="{% url 'show_profile_page' profile.pk %}">{{profile.first_name}} {{profile.last_name}}</a>
+            </td>
+            <td>{{profile.city}}</td>
+            <td><img src="{{profile.profile_pic}}" style="max-width: 400;"></td>
+        </tr>
+        {% endfor %}
+    </tr>
+</table>
+
+
+{% endblock %}

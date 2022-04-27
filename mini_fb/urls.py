@@ -1,7 +1,16 @@
+# mini_fb/urls.py
+
 from django.urls import path
-from .views import HomePageView # our view class definition 
+from .views import ShowAllProfilesView, ShowPossibleFriendsView, ShowProfilePageView, CreateProfileView, UpdateProfileView, post_status_message, DeleteStatusMessageView, ShowNewsFeedView, add_friend
 
 urlpatterns = [
-    # map the URL (empty string) to the view
-    path('', HomePageView.as_view(), name='home'), # generic class-based view
+    path('', ShowAllProfilesView.as_view(), name="show_all_profiles"),
+    path('profile/<int:pk>', ShowProfilePageView.as_view(), name="show_profile_page"),
+    path('profile/<int:pk>/news_feed', ShowNewsFeedView.as_view(), name="show_news_feed"),
+    path('profile/<int:pk>/show_possible_friends', ShowPossibleFriendsView.as_view(), name="show_possible_friends"),
+    path('profile/<int:profile_pk>/add_friend/<int:friend_pk>', add_friend, name="add_friend"),
+    path('create_profile', CreateProfileView.as_view(), name="create_profile"),
+    path('profile/<int:pk>/update', UpdateProfileView.as_view(), name="update_profile"),
+    path('profile/<int:pk>/post_status', post_status_message, name="post_status"),
+    path('profile/<int:profile_pk>/delete_status/<int:status_pk>', DeleteStatusMessageView.as_view(), name="delete_status"),
 ]
