@@ -1,7 +1,7 @@
 """cs108 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.0/topics/http/urls/
+    https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,12 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
-
+# project-level URL patterns
 urlpatterns = [
     path('admin/', admin.site.urls),
-path('hw', include('hello_world.urls')), ## add this line into the list of urlpatterns
-    # other URL patterns here .... 
-    path('pages/', include('pages.urls')),  ## add this new URL include
-    path('quotes/', include('quotes.urls')), # include the URLs from our quotes project's urls.py file
+    path('hw/', include('hello_world.urls')),
+    path('pages', include('pages.urls')),
+    path('quotes/', include('quotes.urls')),
+    path('mini_fb/', include('mini_fb.urls')),
+    path('project/', include('project.urls')), # new! link in URLS from our app
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

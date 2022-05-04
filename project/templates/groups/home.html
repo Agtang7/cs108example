@@ -1,0 +1,26 @@
+<!-- groups/home.html -->
+
+
+<h1>WORLD OF WARCRAFT RAID FINDER</h1>
+
+<!-- DISPLY THE CENTEXT DATA-->
+<!--{{group}}-->
+
+<!-- scriptlet code to display the value of the variable `quotes` 
+{{ group }}
+-->
+
+<ul>
+    {% for group in groups %}
+     <li>"{{group}}</li>
+    {% endfor %}
+</ul>
+
+<!-- if it need image-->
+<!--<ul>
+    {% for quote in quotes %}
+    <li>"{{quote.text}}" - {{quote.author}}<br>
+        <img src="{{quote.image_url}}" style="max-width: 400;">
+    </li>
+    {% endfor %}
+</ul>--> 

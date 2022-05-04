@@ -1,5 +1,5 @@
+<!-- quotes/quote.html -->
 {% extends 'quotes/base.html' %}
-
 {% block content %}
 <center>
 <h1>{{quote.text}}</h1> 
@@ -7,5 +7,4 @@
 <img src="{{quote.person.get_random_image}}" style="max-width: 400;">
 <h4><a href="{% url 'update_quote' quote.pk %}">Update this quote</a></h4>
 </center>
-
 {% endblock %}

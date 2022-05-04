@@ -1,4 +1,9 @@
+#  quotes/admin.py
 from django.contrib import admin
 
 # Register your models here.
-##### file: quotes/admin.py #####
+from .models import *
+
+admin.site.register(Quote)
+admin.site.register(Person)
+admin.site.register(Image)

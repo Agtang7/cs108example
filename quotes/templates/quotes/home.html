@@ -1,20 +1,19 @@
 <!-- quotes/home.html -->
-
 {% extends 'quotes/base.html' %}
-
 {% block content %}
 <h1>Showing All Quotes</h1>
 
+<!-- display the context data-->
 
-<!-- create a loop to display the quotes-->
+<!-- quote is an invalid template variable name! {{quote}} -->
+
+<!-- create a loop to dispay the quotes -->
 <ul>
 {% for quote in quotes %}
     <li>{{quote.text}} - {{quote.person}}<br>
         <img src="{{quote.person.get_random_image}}" style="max-width: 400;">
 
     </li>
-
 {% endfor %}
 </ul>
-
 {% endblock %}
