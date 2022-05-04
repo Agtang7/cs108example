@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Raid
 from .models import Player
 from .models import Group
@@ -14,4 +14,9 @@ class HomePageView(ListView):
     context_object_name = 'groups' # how to find the data in the template file
 
 
-#class PlayerInfoView(CreateView):
+class GroupInfoView(DetailView):
+    "display a single group view"
+
+    model = Group
+    template_name = 'groups/group.html'
+    context_object_name = 'group'

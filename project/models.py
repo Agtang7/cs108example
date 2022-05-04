@@ -52,6 +52,7 @@ class Group(models.Model):
     discord_group = models.TextField(blank=True)
     time = models.TextField(blank=True)
     player_needed = models.IntegerField(blank=True)
+    image_url = models.URLField(blank=True)
 
     def __str__(self):
         '''Return a string representation of the raid.'''

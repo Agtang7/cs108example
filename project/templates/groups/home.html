@@ -1,7 +1,8 @@
 <!-- groups/home.html -->
 
-
+<center>
 <h1>WORLD OF WARCRAFT RAID FINDER</h1>
+</center>
 
 <!-- DISPLY THE CENTEXT DATA-->
 <!--{{group}}-->
@@ -10,9 +11,14 @@
 {{ group }}
 -->
 
+<h3>Group:</h3>
 <ul>
     {% for group in groups %}
-     <li>"{{group}}</li>
+     <li>
+        <img src="{{group.image_url}}" style="max-width: 50;" style="max-height: 50 ;">
+        {{group}}
+       
+     </li>
     {% endfor %}
 </ul>
 
@@ -24,3 +30,4 @@
     </li>
     {% endfor %}
 </ul>--> 
+
