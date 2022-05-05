@@ -1,0 +1,28 @@
+<!-- groups/base.html -->
+<body style="color:rgb(255, 255, 255);background-color: rgb(23, 1, 1);"></body>
+<!--Title-->
+<html>
+    <head>
+        <title>World Of Warcraft</title>
+    </head>
+    <body>
+    <!-- navigation links -->
+    <header>
+        <h2>
+        <a href="{% url 'home' %}">Home</a> |
+        <a href="{% url 'playerlist' %}">Player</a>
+        </h2>
+
+
+    </header>
+
+    <!-- this content block will be filled in by another template
+    which extends this base.html page.-->
+    {% block content %}
+    {% endblock %}
+    
+    <hr>
+    This page was brought to you by ZKIN  Discord:Yellowzkin#7643  add me
+
+    </body>
+</html>

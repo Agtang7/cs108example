@@ -1,0 +1,26 @@
+<!--groups/create_player_form/html-->
+
+{%extends 'groups/base.html' %}
+{% block content %}
+<body style="color:rgb(255, 255, 255);background-color: rgb(19, 18, 18);"></body>
+
+
+
+<center>
+<img  width="500" src="https://c4.wallpaperflare.com/wallpaper/863/309/85/world-of-warcraft-wow-demon-hd-wallpaper-preview.jpg"  >
+
+<h1>Add a player</h1> 
+<form method="POST"> <!-- HTTP POST to send data to the server -->
+    {% csrf_token %}
+
+    <table>
+        {{form.as_table}}
+    <tr>
+        <td></td> <!-- empty! -->
+        <td><input type="submit" value="Add!"></td>
+    </tr>
+    </table>
+</form>
+</center>
+
+{% endblock %}

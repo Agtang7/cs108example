@@ -1,12 +1,31 @@
 <!--groups/group.html-->
+{%extends 'groups/base.html' %}
+{% block content %}
+<body style="color:rgb(255, 255, 255);background-color: rgb(19, 18, 18);"></body>
+<center>
+<img  width="400" src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/03/wow-aspects-galakrond-featured.jpg?q=50&fit=contain&w=767&h=384&dpr=1.5"  >
 
 <h1>Group Info</h1>
-<img src="{{group.image_url}}" style="max-width: 100;" style="max-height: 100 ;">
+
+<img src="{{group.image}}" style="max-width: 70;">
+
 <h3>Raid-Level-Faction : {{group.raid_name}}</h3>
 <h3>Discord ID: {{group.discord_group}}</h3>
 <h3>Time : {{group.time}}</h3>
 <h3>Player needed : {{group.player_needed}}</h3>
 <h3>Leader : {{group.player_tag}}</h3>
+
+
+<a href="{% url 'update_group' group.pk %}">Update Info</a> 
+<br>
+
+<img  width="50"  src="https://upload.wikimedia.org/wikipedia/commons/4/43/Yellow_Arrow_Up.png"  >
+</center>
+
+
+
+
+
 <!-- <ul>
     {% for player in groups %}
         <li>
@@ -15,4 +34,14 @@
     
             </li>
         {% endfor %}
-    </ul> -->
+    </ul> --> 
+
+</center>
+<br>
+<center>
+    <img  width="500" src="https://images.blz-contentstack.com/v3/assets/blt3452e3b114fab0cd/blt0d3f8b6a37a99e8d/601d9493912a490c07af5702/WoW_Ragnaros_3840x2160_enUS.jpg?auto=webp&quality=75"  >
+    <img  width="500" src="https://c4.wallpaperflare.com/wallpaper/863/309/85/world-of-warcraft-wow-demon-hd-wallpaper-preview.jpg"  >
+    
+    </center>
+
+    {% endblock %}

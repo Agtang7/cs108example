@@ -1,0 +1,26 @@
+<!--groups/create_player_form/html-->
+
+{%extends 'groups/base.html' %}
+{% block content %}
+<body style="color:rgb(255, 255, 255);background-color: rgb(19, 18, 18);"></body>
+
+
+
+<center>
+<img  width="500" src="https://images.blz-contentstack.com/v3/assets/blt3452e3b114fab0cd/blt0d3f8b6a37a99e8d/601d9493912a490c07af5702/WoW_Ragnaros_3840x2160_enUS.jpg?auto=webp&quality=75""  >
+
+<h1>Add a Group</h1> 
+<form method="POST"> <!-- HTTP POST to send data to the server -->
+    {% csrf_token %}
+
+    <table>
+        {{form.as_table}}
+    <tr>
+        <td></td> <!-- empty! -->
+        <td><input type="submit" value="Add Group!"></td>
+    </tr>
+    </table>
+</form>
+</center>
+
+{% endblock %}

@@ -1,7 +1,30 @@
 <!-- groups/player.html -->
+{%extends 'groups/base.html' %}
+{% block content %}
+<!--Group creation-->
 
-<!--Title-->
-<h1>Player info registration</h1>
+<center>
+<h1>Player registrated</h1>
 
-<title>Add player</title>
+<img  width="250" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKPZoyhhSefl5rjs9_7WEG-9sPEc2at8C5Og0LpAyRpx76L5XxLJsjYMXnPJnEdYLg1kE&usqp=CAU"  >
+</center>
+<!---show the list of play on site-->
+<ui>
+    {% for player in players %}
+    <li>
+        {{player.player_tag}} - {{player.discord_id}} - {{player.player_class}} - {{player.player_role}}</a>
 
+    </li>
+    {% endfor %}
+</ui>
+
+<center>
+<br>
+<a href="{% url 'player' %}"> add player</a>
+<br>
+
+<img  width="50"  src="https://upload.wikimedia.org/wikipedia/commons/4/43/Yellow_Arrow_Up.png"  >
+</center>
+
+
+{% endblock %}
